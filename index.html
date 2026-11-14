@@ -1,155 +1,281 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Intraday Bulls</title>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-<style>
-  *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-  html{-webkit-text-size-adjust:100%}
-  body{
-    font-family:'Roboto',Arial,sans-serif;
-    background:#0d0d0d;
-    color:#fff;
-    min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:flex-start;
-    padding:max(12px,env(safe-area-inset-top)) max(12px,env(safe-area-inset-right)) max(12px,env(safe-area-inset-bottom)) max(12px,env(safe-area-inset-left));
-  }
-  .container{
-    width:100%;
-    max-width:480px;
-    background:#111827;
-    border:2px solid #d4b800;
-    border-radius:clamp(28px,9vw,50px);
-    box-shadow:0 0 18px rgba(212,184,0,.55), inset 0 0 12px rgba(212,184,0,.15);
-    padding:clamp(18px,5vw,30px) clamp(12px,4vw,18px) clamp(24px,6vw,40px);
-  }
-  .name{
-    border:1px solid #6b7280;
-    text-align:center;
-    font-size:clamp(19px,5.6vw,24px);
-    font-weight:500;
-    padding:10px 8px;
-    color:#f3f4f6;
-    word-break:break-word;
-  }
-  .avatar{
-    width:clamp(130px,42vw,175px);
-    height:clamp(130px,42vw,175px);
-    border-radius:50%;
-    border:3px solid #a8c400;
-    margin:clamp(26px,8vw,42px) auto clamp(34px,10vw,60px);
-    overflow:hidden;
-    display:block;
-  }
-  .avatar img{width:100%;height:100%;object-fit:cover;display:block}
-  .card{
-    background:#1b2045;
-    border:1px solid #5b6178;
-    box-shadow:0 0 10px rgba(200,200,220,.35);
-    padding:clamp(12px,3.5vw,16px) clamp(10px,3vw,14px);
-    display:flex;
-    align-items:flex-start;
-    gap:clamp(10px,3vw,14px);
-  }
-  .icon{
-    flex:0 0 clamp(46px,13vw,58px);
-    width:clamp(46px,13vw,58px);
-    height:clamp(46px,13vw,58px);
-    border:3px solid #fff;
-    border-radius:50%;
-    display:flex;align-items:center;justify-content:center;
-    font-size:clamp(20px,6vw,26px);
-    margin-top:4px;
-  }
-  .card h3{font-size:clamp(16px,4.8vw,21px);font-weight:700;line-height:1.25;color:#fff}
-  .card p{font-size:clamp(14px,4vw,17px);font-weight:300;color:#c9ccd8;line-height:1.6;margin-top:6px}
-  .btn-wrap{text-align:center;margin:clamp(24px,7vw,36px) 0 clamp(30px,9vw,48px);padding:0 6px}
-  .btn{
-    display:flex;align-items:center;justify-content:center;gap:10px;
-    width:100%;
-    max-width:340px;
-    margin:0 auto;
-    background:#0069d9;
-    color:#fff;
-    text-decoration:none;
-    font-weight:700;
-    font-size:clamp(17px,5vw,23px);
-    padding:clamp(14px,4vw,18px) 16px;
-    min-height:56px;
-    border:3px dotted #fff;
-    border-radius:14px;
-    box-shadow:0 0 12px rgba(212,184,0,.9);
-    animation:pulse 1.6s infinite;
-    white-space:nowrap;
-  }
-  .btn:active{transform:scale(.97)}
-  .btn svg{width:clamp(24px,7vw,30px);height:clamp(24px,7vw,30px);flex:0 0 auto}
-  @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.04)}}
-  .gap{height:clamp(24px,7vw,40px)}
-  .disclaimer{
-    text-align:center;
-    font-size:clamp(11.5px,3.3vw,13px);
-    line-height:1.65;
-    color:#e5e7eb;
-    margin-top:clamp(20px,6vw,28px);
-    padding:0 4px;
-  }
-  @media (prefers-reduced-motion:reduce){.btn{animation:none}}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Learners Gautam Jha | Stock Market Education</title>
+    <meta name="description" content="Learn Stock Market Technical Analysis, Price Action, Chart Reading, and Risk Management with Stock Learners Gautam Jha. Strictly for educational purposes.">
+    
+    <!-- Google Fonts: Plus Jakarta Sans & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        navy: {
+                            950: '#060B19',
+                            900: '#0B132B',
+                            800: '#131F3D',
+                            700: '#1C2E58',
+                        },
+                        emerald: {
+                            450: '#10B981',
+                            500: '#059669',
+                        }
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 4s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-6px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
 </head>
-<body>
-  <div class="container">
+<body class="bg-navy-950 text-slate-200 antialiased selection:bg-emerald-500/30 selection:text-emerald-200 min-h-screen flex flex-col justify-between relative overflow-x-hidden">
 
-    <div class="name">Intraday Bulls</div>
-
-    <div class="avatar">
-      <img src="https://i.ibb.co/Kxy5sCht/In-Shot-20261112-003926626.jpg" alt="Intraday Bulls">
+    <!-- Subtle Ambient Background Glows (Non-interactive) -->
+    <div class="pointer-events-none fixed inset-0 overflow-hidden z-0">
+        <div class="absolute -top-24 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-emerald-500/10 rounded-full blur-[120px]"></div>
+        <div class="absolute bottom-0 right-0 w-[400px] h-[400px] bg-blue-600/10 rounded-full blur-[120px]"></div>
     </div>
 
-    <div class="card">
-      <div class="icon">📊</div>
-      <div>
-        <h3>Market Insights &amp; Analysis</h3>
-        <p>Real-time market updates and expert discussions</p>
-      </div>
-    </div>
+    <!-- Top Educational Compliance Banner -->
+    <header class="relative z-10 w-full bg-navy-900/80 border-b border-slate-800/80 backdrop-blur-md py-2.5 px-4 text-center">
+        <p class="text-xs sm:text-sm font-medium text-slate-300 tracking-wide flex items-center justify-center gap-2">
+            <span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            100% Educational Community • Price Action & Chart Analysis
+        </p>
+    </header>
 
-    <div class="btn-wrap">
-      <a class="btn" href="https://t.me/+-VrsSbPb6uFlZjll" target="_blank" rel="noopener">
-        <svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="120" cy="120" r="120" fill="#fff"/>
-          <path fill="#0069d9" d="M54 118l115-47c5-2 10 1 8 9l-20 93c-1 7-6 9-12 5l-30-22-14 14c-2 2-3 3-6 3l2-31 56-51c3-2-1-4-4-2l-69 44-30-9c-6-2-6-6 2-9z"/>
-        </svg>
-        JOIN NOW TELEGRAM
-      </a>
-    </div>
+    <!-- Main Content Container -->
+    <main class="relative z-10 w-full max-w-2xl mx-auto px-4 sm:px-6 py-8 sm:py-12 flex-grow flex flex-col items-center">
 
-    <div class="card">
-      <div class="icon">📚</div>
-      <div>
-        <h3>Learn Trading Strategies</h3>
-        <p>Investment | Share Market | Trading guidance</p>
-      </div>
-    </div>
+        <!-- HERO SECTION -->
+        <section class="w-full text-center flex flex-col items-center">
+            
+            <!-- Channel Logo Container -->
+            <div class="relative mb-5 animate-float">
+                <div class="w-28 h-28 sm:w-32 sm:h-32 rounded-full p-1 bg-gradient-to-tr from-emerald-500 via-teal-400 to-blue-500 shadow-2xl shadow-emerald-500/20">
+                    <img 
+                        src="https://iili.io/o9JuEQf.jpg" 
+                        alt="Stock Learners Gautam Jha Logo" 
+                        onerror="this.onerror=null; this.src='https://placehold.co/200x200/0B132B/10B981?text=SL';"
+                        class="w-full h-full object-cover rounded-full border-4 border-navy-950 bg-navy-900"
+                    >
+                </div>
+                <!-- Verified Educational Badge Icon -->
+                <div class="absolute bottom-1 right-1 bg-navy-950 rounded-full p-1 shadow-md" title="Official Learning Community">
+                    <svg class="w-6 h-6 text-emerald-400" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2L14.8 4.6L18.5 4.2L19.6 7.8L22.8 9.8L21.6 13.4L22.8 17L19.6 19L18.5 22.6L14.8 22.2L12 24.8L9.2 22.2L5.5 22.6L4.4 19L1.2 17L2.4 13.4L1.2 9.8L4.4 7.8L5.5 4.2L9.2 4.6L12 2ZM10.5 16.5L17.2 9.8L15.8 8.4L10.5 13.7L8.2 11.4L6.8 12.8L10.5 16.5Z"/>
+                    </svg>
+                </div>
+            </div>
 
-    <div class="gap"></div>
+            <!-- Educational Tag Pill -->
+            <div class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-emerald-400 text-xs font-semibold uppercase tracking-wider mb-3">
+                <span>Stock Market Education</span>
+            </div>
 
-    <div class="card">
-      <div class="icon">🛡️</div>
-      <div>
-        <h3>Practical Tips &amp; Tricks</h3>
-        <p>Actionable strategies and proven methods</p>
-      </div>
-    </div>
+            <!-- Channel Name -->
+            <h1 class="font-display text-2xl sm:text-4xl font-extrabold text-white tracking-tight mb-3">
+                Stock Learners Gautam Jha
+            </h1>
 
-    <p class="disclaimer">
-      Disclaimer: This content is for educational purposes only and does not constitute financial advice. Trading involves risk. Please do your own research before making investment decisions.
-    </p>
+            <!-- Value Proposition (Hinglish/English Mix, Meta Safe) -->
+            <p class="text-slate-300 text-sm sm:text-base max-w-lg leading-relaxed mb-7">
+                Market ko samjhein logic aur chart analysis ke saath. Seekhein <span class="text-white font-semibold">Technical Analysis, Price Action, Chart Reading</span> aur <span class="text-white font-semibold">Risk Management</span> bilkul free hamare Telegram channel par.
+            </p>
 
-  </div>
+            <!-- SINGLE TELEGRAM CTA BUTTON (STRICTLY ONLY ONE LINK ON THE ENTIRE PAGE) -->
+            <div class="w-full max-w-md">
+                <a 
+                    id="telegram-cta-btn"
+                    href="https://t.me/+oinB_k74bfExZTll" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    class="group relative w-full flex items-center justify-center gap-3 bg-gradient-to-r from-[#229ED9] to-[#1D8CC2] hover:from-[#26A7E5] hover:to-[#2096CF] text-white font-display font-bold text-base sm:text-lg py-4 px-6 rounded-2xl shadow-lg shadow-[#229ED9]/30 transition-all duration-200 transform hover:-translate-y-0.5 active:translate-y-0 focus:outline-none focus:ring-4 focus:ring-[#229ED9]/40"
+                >
+                    <!-- Telegram Paper Plane SVG -->
+                    <svg class="w-6 h-6 sm:w-7 sm:h-7 fill-current transition-transform duration-200 group-hover:scale-110" viewBox="0 0 24 24">
+                        <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+                    </svg>
+                    <span>Join Free Telegram Channel</span>
+                    <svg class="w-5 h-5 opacity-80 transition-transform duration-200 group-hover:translate-x-1" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/>
+                    </svg>
+                </a>
+                <p class="text-xs text-slate-400 mt-2.5 flex items-center justify-center gap-1.5">
+                    <svg class="w-3.5 h-3.5 text-emerald-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/>
+                    </svg>
+                    Free Access • Opens directly in Telegram App
+                </p>
+            </div>
+        </section>
+
+        <!-- WHAT YOU WILL LEARN SECTION -->
+        <section class="w-full mt-12">
+            <div class="text-center mb-6">
+                <h2 class="font-display text-lg sm:text-xl font-bold text-white">
+                    Channel Par Aap Kya Seekhenge?
+                </h2>
+                <p class="text-xs sm:text-sm text-slate-400 mt-1">
+                    Structured learning modules for disciplined market participants
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4">
+                
+                <!-- Card 1 -->
+                <div class="bg-navy-900/70 border border-slate-800/90 rounded-2xl p-4 sm:p-5 backdrop-blur-sm">
+                    <div class="w-10 h-10 rounded-xl bg-emerald-500/15 border border-emerald-500/20 flex items-center justify-center text-emerald-400 mb-3">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-display font-bold text-white text-base mb-1.5">
+                        Price Action & Chart Patterns
+                    </h3>
+                    <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
+                        Candlestick behavior, trendlines, breakout structures aur real-time chart reading concepts ko aasaan bhasha mein samjhein.
+                    </p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-navy-900/70 border border-slate-800/90 rounded-2xl p-4 sm:p-5 backdrop-blur-sm">
+                    <div class="w-10 h-10 rounded-xl bg-blue-500/15 border border-blue-500/20 flex items-center justify-center text-blue-400 mb-3">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-display font-bold text-white text-base mb-1.5">
+                        Risk Management & Psychology
+                    </h3>
+                    <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
+                        Capital protection, position sizing, aur emotional discipline kaise maintain karein taaki aap ek sensible learner ban sakein.
+                    </p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-navy-900/70 border border-slate-800/90 rounded-2xl p-4 sm:p-5 backdrop-blur-sm">
+                    <div class="w-10 h-10 rounded-xl bg-amber-500/15 border border-amber-500/20 flex items-center justify-center text-amber-400 mb-3">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3m0 0l.5 1.5m-.5-1.5h-9.5m0 0l-.5 1.5M9 11.25v1.5M12 9v3.75m3-6v6"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-display font-bold text-white text-base mb-1.5">
+                        Market Structure & Key Levels
+                    </h3>
+                    <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
+                        Support, resistance, demand-supply zones aur index behavior (Nifty & BankNifty) ka educational breakdown.
+                    </p>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="bg-navy-900/70 border border-slate-800/90 rounded-2xl p-4 sm:p-5 backdrop-blur-sm">
+                    <div class="w-10 h-10 rounded-xl bg-purple-500/15 border border-purple-500/20 flex items-center justify-center text-purple-400 mb-3">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-display font-bold text-white text-base mb-1.5">
+                        Daily Chart Case Studies
+                    </h3>
+                    <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
+                        Post-market analysis aur educational chart setups taaki aap khud se market movements ko analyze karna seekh sakein.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- TRUST & TRANSPARENCY STRIP (Non-clickable informational blocks) -->
+        <section class="w-full mt-8 bg-navy-900/50 border border-slate-800/80 rounded-2xl p-4 sm:p-5 flex flex-col sm:flex-row items-center justify-around gap-4 text-center">
+            <div>
+                <p class="font-display font-bold text-white text-base sm:text-lg">Zero Paid Calls</p>
+                <p class="text-xs text-slate-400">Purely Knowledge Sharing</p>
+            </div>
+            <div class="hidden sm:block w-px h-8 bg-slate-800"></div>
+            <div>
+                <p class="font-display font-bold text-emerald-400 text-base sm:text-lg">Logic Over Hype</p>
+                <p class="text-xs text-slate-400">Data & Chart Driven Learning</p>
+            </div>
+            <div class="hidden sm:block w-px h-8 bg-slate-800"></div>
+            <div>
+                <p class="font-display font-bold text-white text-base sm:text-lg">Beginner Friendly</p>
+                <p class="text-xs text-slate-400">Simple Step-by-Step Explanations</p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- MANDATORY META ADS & SEBI EDUCATIONAL DISCLAIMER FOOTER -->
+    <footer class="relative z-10 w-full bg-navy-900/90 border-t border-slate-800/90 py-6 px-4 sm:px-6 mt-8">
+        <div class="max-w-2xl mx-auto text-center space-y-3">
+            <div class="inline-block px-3 py-1 rounded-md bg-slate-800/80 border border-slate-700/70 text-[11px] font-semibold text-slate-300 uppercase tracking-wider">
+                Important Educational & Risk Disclaimer
+            </div>
+            
+            <p class="text-[11px] sm:text-xs text-slate-400 leading-relaxed text-justify sm:text-center">
+                <strong class="text-slate-300">Disclaimer:</strong> <span class="text-slate-300 font-medium">Stock Learners Gautam Jha</span> is strictly an educational community created to share knowledge about technical analysis, chart reading, and stock market concepts. We are <strong class="text-slate-300">NOT SEBI-registered</strong> investment advisors or research analysts. All charts, case studies, and discussions shared in the Telegram channel are solely for <strong class="text-slate-300">educational and informational purposes only</strong> and should not be construed as financial, investment, or trading advice.
+            </p>
+            
+            <p class="text-[11px] sm:text-xs text-slate-400 leading-relaxed text-justify sm:text-center">
+                Investments and trading in the securities market are subject to market risks. Past performance or historical chart patterns do not guarantee future results. Please consult a SEBI-registered financial advisor before making any investment decisions.
+            </p>
+
+            <div class="pt-2 border-t border-slate-800/80 text-[11px] text-slate-500">
+                &copy; <span id="current-year"></span> Stock Learners Gautam Jha. All Rights Reserved. • Not affiliated with Meta Platforms, Inc. or Telegram.
+            </div>
+
+            <!-- Agency Attribution -->
+            <div class="pt-1 text-[11px] text-slate-500">
+                Promoted By <a href="https://t.me/+3XoqJNLxYHswNTc1" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-emerald-400 font-medium underline underline-offset-2 transition-colors">AD BUILD AGENCY</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Minimal Script for Dynamic Year & Conversion Event Tracking Hook -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Set current year automatically
+            const yearEl = document.getElementById('current-year');
+            if (yearEl) {
+                yearEl.textContent = new Date().getFullYear();
+            }
+
+            // Optional Meta Pixel Lead/Contact event trigger on the single CTA button
+            const ctaBtn = document.getElementById('telegram-cta-btn');
+            if (ctaBtn) {
+                ctaBtn.addEventListener('click', () => {
+                    try {
+                        if (typeof fbq === 'function') {
+                            fbq('track', 'Lead');
+                        }
+                    } catch (e) {
+                        // Safe fallback if Meta Pixel is not yet injected
+                    }
+                });
+            }
+        });
+    </script>
 </body>
+ 
 </html>
